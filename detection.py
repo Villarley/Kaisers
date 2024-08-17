@@ -17,7 +17,7 @@ net.setInputMean((127.5, 127.5, 127.5))
 net.setInputSwapRB(True)
 
 # Etiquetas de clases del modelo COCO
-CLASSES = {0: 'background', 1: 'person', 2: 'bicycle', 3: 'car', ...}
+CLASSES = {0: 'background', 1: 'person', 2: 'bicycle', 3: 'car'}
 
 # Inicializar la cámara
 cap = cv2.VideoCapture(0)
