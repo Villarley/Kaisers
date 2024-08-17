@@ -1,4 +1,4 @@
-# BauResQ - Autonomous Rescue Robot
+# BauResQ - Autonomous Rescue Robot 🤖
 
 ![BauResQ Logo](https://i.ibb.co/dpgVQpD/Bau-Res-Q-2.png)
 
