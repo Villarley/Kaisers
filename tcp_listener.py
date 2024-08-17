@@ -1,6 +1,4 @@
 import socket
-from evacuation_protocol import EvacuationProtocol
-from motor_control import MotorController
 
 class TCPListener:
     def __init__(self, host="0.0.0.0", port=9999):
@@ -18,8 +16,10 @@ class TCPListener:
             callback()
         conn.close()
 
+# Uso de ejemplo
 if __name__ == "__main__":
-    motor_controller = MotorController(left_pin=12, right_pin=16)
-    protocolo = EvacuationProtocol(motor_controller)
+    def protocolo_evacuacion():
+        print("Ejecutando protocolo de evacuación...")
+
     listener = TCPListener()
-    listener.listen(protocolo.execute)
+    listener.listen(protocolo_evacuacion)
