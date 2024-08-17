@@ -1,6 +1,6 @@
 # BauResQ - Autonomous Rescue Robot
 
-![BauResQ Logo](https://i.ibb.co/9HDdpsR/Bau-Res-Q-1.jpg)
+![BauResQ Logo](https://i.ibb.co/dpgVQpD/Bau-Res-Q-2.png)
 
 **BauResQ** is an autonomous rescue robot designed to assist in search and rescue missions. Powered by NVIDIA's Jetson Nano and programmed in Python, BauResQ can navigate through challenging environments, identify obstacles, and assist in locating individuals in need. This project showcases the integration of robotics, AI, and edge computing to create a life-saving solution.
 
