@@ -7,5 +7,5 @@ def send_evacuation_signal(robot_ip, port=9999):
     client.close()
 
 if __name__ == "__main__":
-    robot_ip = "192.168.100.157"  # Reemplaza con la IP de tu Jetson Nano
+    robot_ip = "192.168.100.157"
     send_evacuation_signal(robot_ip)
