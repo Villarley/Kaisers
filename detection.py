@@ -9,7 +9,7 @@ net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
 # Etiquetas de clases del modelo COCO
-CLASSES = {0: 'background', 1: 'person', 2: 'bicycle', 3: 'car', ...}
+CLASSES = {0: 'background', 1: 'person', 2: 'bicycle', 3: 'car'}
 
 # Inicializar la cámara
 cap = cv2.VideoCapture(0)
