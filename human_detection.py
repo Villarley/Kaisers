@@ -1,11 +1,11 @@
-import cv2
+import cv4
 
 # Inicializar el detector HOG con el clasificador preentrenado para humanos
-hog = cv2.HOGDescriptor()
-hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+hog = cv4.HOGDescriptor()
+hog.setSVMDetector(cv4.HOGDescriptor_getDefaultPeopleDetector())
 
 # Capturar video desde la cámara
-cap = cv2.VideoCapture(0)
+cap = cv4.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
@@ -13,7 +13,7 @@ while True:
         break
 
     # Redimensionar la imagen para mejorar la velocidad de procesamiento
-    frame = cv2.resize(frame, (640, 480))
+    frame = cv4.resize(frame, (640, 480))
 
     # Detectar personas en el fotograma
     (rects, _) = hog.detectMultiScale(frame, winStride=(4, 4),
@@ -24,12 +24,12 @@ while True:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     # Mostrar el resultado
-    cv2.imshow('Detección de Humanos', frame)
+    cv4.imshow('Detección de Humanos', frame)
 
     # Presiona 'q' para salir
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv4.waitKey(1) & 0xFF == ord('q'):
         break
 
 # Liberar los recursos
 cap.release()
-cv2.destroyAllWindows()
+cv4.destroyAllWindows()
