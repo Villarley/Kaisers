@@ -1,7 +1,7 @@
 import socket
 
 # Configurar los detalles del servidor
-esp32_ip = '192.168.94.238'  # Reemplaza con la IP de tu ESP32
+esp32_ip = '192.168.100.164'  # Reemplaza con la IP de tu ESP32
 esp32_port = 80           # Debe coincidir con el puerto configurado en el ESP32
 
 # Crear el socket TCP

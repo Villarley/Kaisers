@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-const char* ssid = "";       // Reemplaza con el SSID de tu red Wi-Fi
-const char* password = ""; // Reemplaza con la contraseña de tu red Wi-Fi
+const char* ssid = "dlink-5369";       // Reemplaza con el SSID de tu red Wi-Fi
+const char* password = "adcde70684"; // Reemplaza con la contraseña de tu red Wi-Fi
 
 WiFiServer server(80); // El servidor escucha en el puerto 80
 
@@ -32,10 +32,16 @@ void loop() {
     while (client.connected()) {
       if (client.available()) {             // Si hay datos para leer
         String data = client.readStringUntil('\n'); // Leer los datos
-        Serial.println("Recibido: " + data);
-
+        if (data == "2"){
+          Serial.println("Recibido: " + data);
+          client.println("Recibida: " + data);
+        }
+        else{
+          Serial.println("Recibido mas no entendido: " + data);
+          client.println("Recibida más no entendida: " + data);
+        }
         // Responder al cliente
-        client.println("Instrucción recibida: " + data);
+        
       }
     }
     client.stop();
