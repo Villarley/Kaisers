@@ -1,7 +1,7 @@
 import socket
 
 class JetsonSender:
-    def __init__(self, esp32_ip='192.168.203.133', esp32_port=80):
+    def __init__(self, esp32_ip='192.168.0.15', esp32_port=80):
         self.esp32_ip = esp32_ip
         self.esp32_port = esp32_port
         self.client_socket = None
