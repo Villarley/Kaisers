@@ -24,20 +24,17 @@ while True:
     # Encontrar contornos
     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Verificar si se encontraron contornos grandes
     for contour in contours:
         area = cv2.contourArea(contour)
-        if area > 1000:  # Umbral de área para detectar fuego
+        if area > 1000:  
             # Enviar solicitud HTTP al ESP
             response = requests.get(esp_url)
             print("¡Fuego detectado! Enviando señal al ESP.")
             break
 
-    # Mostrar el video en vivo
     cv2.imshow("Frame", frame)
     cv2.imshow("Mask", mask)
 
-    # Salir si se presiona la tecla 'q'
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
