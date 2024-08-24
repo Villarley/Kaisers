@@ -1,26 +1,29 @@
 import socket
 
-# Configurar los detalles del servidor
-esp32_ip = '192.168.203.133'  # Reemplaza con la IP de tu ESP32
-esp32_port = 80           # Debe coincidir con el puerto configurado en el ESP32
+class JetsonSender:
+    def __init__(self, esp32_ip='192.168.203.133', esp32_port=80):
+        self.esp32_ip = esp32_ip
+        self.esp32_port = esp32_port
+        self.client_socket = None
 
-# Crear el socket TCP
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect((esp32_ip, esp32_port))
+    def connect(self):
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket.connect((self.esp32_ip, self.esp32_port))
 
-try:
-    while True:
-        # Leer la instrucción a enviar
-        instruction = input()
-        if instruction.lower() == 'exit':
-            break
-        # Enviar la instrucción
-        client_socket.sendall((instruction + '\n').encode())
+    def send_instruction(self, instruction):
+        try:
+            if not self.client_socket:
+                self.connect()
+            
+            self.client_socket.sendall((instruction + '\n').encode())
+            response = self.client_socket.recv(1024).decode()
+            return response
 
-        # Recibir la respuesta
-        response = client_socket.recv(1024).decode()
-        print("Respuesta del ESP32:", response)
+        except Exception as e:
+            print(f"Error durante la comunicación con el ESP32: {e}")
+            return None
 
-finally:
-    # Cerrar la conexión
-    client_socket.close()
+        finally:
+            if self.client_socket:
+                self.client_socket.close()
+                self.client_socket = None
