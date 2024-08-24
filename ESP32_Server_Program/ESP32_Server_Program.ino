@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <ESP32Servo.h>
 
-const char* ssid = "RedmiDev";       // Reemplaza con el SSID de tu red Wi-Fi
-const char* password = "74296ec22dev"; // Reemplaza con la contraseña de tu red Wi-Fi
+const char* ssid = "Redmi";       // Reemplaza con el SSID de tu red Wi-Fi
+const char* password = "TRIKSY2530"; // Reemplaza con la contraseña de tu red Wi-Fi
 
 Servo myServo; 
 //int emergency[] = {2,3,4,5,6};
