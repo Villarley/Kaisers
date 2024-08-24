@@ -11,6 +11,7 @@ class JetsonSender:
         self.client_socket.connect((self.esp32_ip, self.esp32_port))
 
     def send_instruction(self, instruction):
+        print(instruction)
         try:
             if not self.client_socket:
                 self.connect()

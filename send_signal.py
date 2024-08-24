@@ -7,5 +7,5 @@ def send_evacuation_signal(robot_ip, port=9999):
     client.close()
 
 if __name__ == "__main__":
-    robot_ip = "192.168.94.79"
+    robot_ip = "192.168.0.14"
     send_evacuation_signal(robot_ip)
