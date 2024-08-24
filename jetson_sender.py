@@ -1,7 +1,7 @@
 import socket
 
 # Configurar los detalles del servidor
-esp32_ip = '192.168.94.77'  # Reemplaza con la IP de tu ESP32
+esp32_ip = '192.168.203.133'  # Reemplaza con la IP de tu ESP32
 esp32_port = 80           # Debe coincidir con el puerto configurado en el ESP32
 
 # Crear el socket TCP
@@ -11,10 +11,9 @@ client_socket.connect((esp32_ip, esp32_port))
 try:
     while True:
         # Leer la instrucción a enviar
-        instruction = input("")
+        instruction = input()
         if instruction.lower() == 'exit':
             break
-
         # Enviar la instrucción
         client_socket.sendall((instruction + '\n').encode())
 
