@@ -26,6 +26,7 @@ def move_motor1_backward():
 
 
 def move_both():
+    print("hallo")
     move_motor1_forward()
     move_motor2_forward()
     time.sleep(2)
