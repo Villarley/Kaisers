@@ -44,44 +44,43 @@ def stop_motor2():
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.LOW)
 
+# Función para mover ambos motores hacia adelante simultáneamente
+def move_both_motors_forward():
+    move_motor1_forward()
+    move_motor2_forward()
+
+# Función para mover ambos motores hacia atrás simultáneamente
+def move_both_motors_backward():
+    move_motor1_backward()
+    move_motor2_backward()
+
+# Función para detener ambos motores simultáneamente
+def stop_both_motors():
+    stop_motor1()
+    stop_motor2()
+
 # Código de prueba para controlar los motores
 try:
     while True:
-        # Motor 1 hacia adelante
-        move_motor1_forward()
-        print("Motor 1 moviéndose hacia adelante.")
+        # Mover ambos motores hacia adelante
+        move_both_motors_forward()
+        print("Ambos motores moviéndose hacia adelante.")
         time.sleep(2)
 
-        # Motor 1 hacia atrás
-        move_motor1_backward()
-        print("Motor 1 moviéndose hacia atrás.")
+        # Mover ambos motores hacia atrás
+        move_both_motors_backward()
+        print("Ambos motores moviéndose hacia atrás.")
         time.sleep(2)
 
-        # Detener Motor 1
-        stop_motor1()
-        print("Motor 1 detenido.")
-        time.sleep(2)
-
-        # Motor 2 hacia adelante
-        move_motor2_forward()
-        print("Motor 2 moviéndose hacia adelante.")
-        time.sleep(2)
-
-        # Motor 2 hacia atrás
-        move_motor2_backward()
-        print("Motor 2 moviéndose hacia atrás.")
-        time.sleep(2)
-
-        # Detener Motor 2
-        stop_motor2()
-        print("Motor 2 detenido.")
+        # Detener ambos motores
+        stop_both_motors()
+        print("Ambos motores detenidos.")
         time.sleep(2)
 
 except KeyboardInterrupt:
     print("Programa interrumpido por el usuario.")
 finally:
+    # Detener ambos motores antes de limpiar GPIO
+    stop_both_motors()
     GPIO.cleanup()
-    stop_motor1()
-    stop_motor2()
-    # Limpia los GPIO al finalizar
     print("GPIO limpio y terminado.")
