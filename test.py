@@ -2,12 +2,12 @@ import Jetson.GPIO as GPIO
 import time
 
 # Asignación de pines GPIO para Motor 1
-IN1_motor1 = 26  # GPIO26 -> Pin 37 en Jetson
-IN2_motor1 = 16  # GPIO16 -> Pin 36 en Jetson
+IN1_motor1 = 19  # GPIO19 -> Pin 35 en Jetson
+IN2_motor1 = 26  # GPIO26 -> Pin 37 en Jetson
 
 # Asignación de pines GPIO para Motor 2
-IN3_motor2 = 19  # GPIO19 -> Pin 35 en Jetson
-IN4_motor2 = 20  # GPIO20 -> Pin 38 en Jetson
+IN3_motor2 = 20  # GPIO20 -> Pin 38 en Jetson
+IN4_motor2 = 16  # GPIO16 -> Pin 36 en Jetson
 
 # Configuración de los pines GPIO
 GPIO.setmode(GPIO.BCM)  # Usar la numeración BCM para los pines
