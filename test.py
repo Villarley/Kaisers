@@ -35,6 +35,10 @@ def move_motor2_forward():
 def stop_motor2():
     GPIO.output(IN3_motor2, GPIO.LOW)
     GPIO.output(IN4_motor2, GPIO.LOW)
+    
+def move_both():
+    move_motor1_forward()
+    move_motor2_forward()
 
 # Código de prueba para controlar los motores de manera secuencial
 try:
@@ -58,6 +62,15 @@ try:
         print("Deteniendo Motor 2.")
         stop_motor2()
         time.sleep(2)  # Pausar por 2 segundos
+        
+                # Detener Motor 2
+        print("both")
+        move_both()
+        time.sleep(2)  # Pausar por 2 segundos
+        
+        stop_motor1(
+        stop_motor2()
+        )
 
 except KeyboardInterrupt:
     print("Programa interrumpido por el usuario.")
