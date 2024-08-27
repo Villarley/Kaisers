@@ -47,4 +47,38 @@ def stop_motor2():
 # Código de prueba para controlar los motores
 try:
     while True:
-        # Motor 1 hacia
+        # Motor 1 hacia adelante
+        move_motor1_forward()
+        print("Motor 1 moviéndose hacia adelante.")
+        time.sleep(2)
+
+        # Motor 1 hacia atrás
+        move_motor1_backward()
+        print("Motor 1 moviéndose hacia atrás.")
+        time.sleep(2)
+
+        # Detener Motor 1
+        stop_motor1()
+        print("Motor 1 detenido.")
+        time.sleep(2)
+
+        # Motor 2 hacia adelante
+        move_motor2_forward()
+        print("Motor 2 moviéndose hacia adelante.")
+        time.sleep(2)
+
+        # Motor 2 hacia atrás
+        move_motor2_backward()
+        print("Motor 2 moviéndose hacia atrás.")
+        time.sleep(2)
+
+        # Detener Motor 2
+        stop_motor2()
+        print("Motor 2 detenido.")
+        time.sleep(2)
+
+except KeyboardInterrupt:
+    print("Programa interrumpido por el usuario.")
+finally:
+    GPIO.cleanup()  # Limpia los GPIO al finalizar
+    print("GPIO limpio y terminado.")
