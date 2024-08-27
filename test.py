@@ -46,8 +46,8 @@ def stop_motor2():
 
 # Función para mover ambos motores hacia adelante simultáneamente
 def move_both_motors_forward():
-        # move_motor1_forward()
-        move_motor2_forward()
+    move_motor1_forward()
+    move_motor2_forward()
 
 # Función para mover ambos motores hacia atrás simultáneamente
 def move_both_motors_backward():
@@ -62,19 +62,16 @@ def stop_both_motors():
 # Código de prueba para controlar los motores
 try:
     while True:
-        # Mover ambos motores hacia adelante
+        print("Probar mover Motor 1 y Motor 2 hacia adelante.")
         move_both_motors_forward()
-        print("Ambos motores moviéndose hacia adelante.")
         time.sleep(2)
 
-        # Mover ambos motores hacia atrás
+        print("Probar mover Motor 1 y Motor 2 hacia atrás.")
         move_both_motors_backward()
-        print("Ambos motores moviéndose hacia atrás.")
         time.sleep(2)
 
-        # Detener ambos motores
+        print("Detener ambos motores.")
         stop_both_motors()
-        print("Ambos motores detenidos.")
         time.sleep(2)
 
 except KeyboardInterrupt:
