@@ -51,12 +51,12 @@ try:
     while True:
         # Mover ambos motores hacia adelante
         move_motor1_forward()
-        move_motor2_forward()
+        # move_motor2_forward()
         print("Ambos motores moviéndose hacia adelante.")
         time.sleep(2)
 
         # Mover ambos motores hacia atrás
-        move_motor1_backward()
+        # move_motor1_backward()
         move_motor2_backward()
         print("Ambos motores moviéndose hacia atrás.")
         time.sleep(2)
