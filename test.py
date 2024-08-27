@@ -47,7 +47,7 @@ def stop_motor2():
 # Función para mover ambos motores hacia adelante simultáneamente
 def move_both_motors_forward():
     move_motor1_forward()
-    move_motor2_forward()
+    # move_motor2_forward()
 
 # Función para mover ambos motores hacia atrás simultáneamente
 def move_both_motors_backward():
