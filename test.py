@@ -1,11 +1,9 @@
 import Jetson.GPIO as GPIO
 import time
 
-# Asignación de pines GPIO para el primer controlador
+# Asignación de pines GPIO
 IN1_motor1 = 26  # GPIO26 -> Pin 37 en Jetson
 IN2_motor1 = 16  # GPIO16 -> Pin 36 en Jetson
-
-# Asignación de pines GPIO para el segundo controlador
 IN3_motor2 = 19  # GPIO19 -> Pin 35 en Jetson
 IN4_motor2 = 20  # GPIO20 -> Pin 38 en Jetson
 
@@ -16,62 +14,48 @@ GPIO.setup(IN2_motor1, GPIO.OUT)
 GPIO.setup(IN3_motor2, GPIO.OUT)
 GPIO.setup(IN4_motor2, GPIO.OUT)
 
-# Función para mover el Motor 1 hacia adelante
-def move_motor1_forward():
+# Función para mover ambos motores hacia adelante
+def move_both_motors_forward():
     GPIO.output(IN1_motor1, GPIO.HIGH)
     GPIO.output(IN2_motor1, GPIO.LOW)
-
-# Función para mover el Motor 1 hacia atrás
-def move_motor1_backward():
-    GPIO.output(IN1_motor1, GPIO.LOW)
-    GPIO.output(IN2_motor1, GPIO.HIGH)
-
-# Función para detener el Motor 1
-def stop_motor1():
-    GPIO.output(IN1_motor1, GPIO.LOW)
-    GPIO.output(IN2_motor1, GPIO.LOW)
-
-# Función para mover el Motor 2 hacia adelante
-def move_motor2_forward():
     GPIO.output(IN3_motor2, GPIO.HIGH)
     GPIO.output(IN4_motor2, GPIO.LOW)
 
-# Función para mover el Motor 2 hacia atrás
-def move_motor2_backward():
+# Función para mover ambos motores hacia atrás
+def move_both_motors_backward():
+    GPIO.output(IN1_motor1, GPIO.LOW)
+    GPIO.output(IN2_motor1, GPIO.HIGH)
     GPIO.output(IN3_motor2, GPIO.LOW)
     GPIO.output(IN4_motor2, GPIO.HIGH)
 
-# Función para detener el Motor 2
-def stop_motor2():
+# Función para detener ambos motores
+def stop_both_motors():
+    GPIO.output(IN1_motor1, GPIO.LOW)
+    GPIO.output(IN2_motor1, GPIO.LOW)
     GPIO.output(IN3_motor2, GPIO.LOW)
     GPIO.output(IN4_motor2, GPIO.LOW)
 
-# Código de prueba para controlar los motores
+# Código de prueba para controlar ambos motores
 try:
-    while True:
-        # Mover ambos motores hacia adelante
-        move_motor1_forward()
-        # move_motor2_forward()
-        print("Ambos motores moviéndose hacia adelante.")
-        time.sleep(2)
+    print("Moviendo ambos motores hacia adelante.")
+    move_both_motors_forward()
+    time.sleep(2)  # Mover ambos motores por 2 segundos
 
-        # Mover ambos motores hacia atrás
-        # move_motor1_backward()
-        move_motor2_backward()
-        print("Ambos motores moviéndose hacia atrás.")
-        time.sleep(2)
+    print("Deteniendo ambos motores.")
+    stop_both_motors()
+    time.sleep(2)  # Pausar por 2 segundos
 
-        # Detener ambos motores
-        stop_motor1()
-        stop_motor2()
-        print("Ambos motores detenidos.")
-        time.sleep(2)
+    print("Moviendo ambos motores hacia atrás.")
+    move_both_motors_backward()
+    time.sleep(2)  # Mover ambos motores hacia atrás por 2 segundos
+
+    print("Deteniendo ambos motores.")
+    stop_both_motors()
+    time.sleep(2)  # Pausar por 2 segundos
 
 except KeyboardInterrupt:
     print("Programa interrumpido por el usuario.")
 finally:
-    # Detener ambos motores antes de limpiar GPIO
-    stop_motor1()
-    stop_motor2()
-    GPIO.cleanup()
+    stop_both_motors()  # Asegurarse de que ambos motores estén detenidos
+    GPIO.cleanup()  # Limpiar configuración de GPIO
     print("GPIO limpio y terminado.")
