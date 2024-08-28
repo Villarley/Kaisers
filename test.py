@@ -10,12 +10,12 @@ IN3_motor2 = 20  # GPIO20 -> Pin 38 on Jetson
 IN4_motor2 = 16  # GPIO16 -> Pin 36 on Jetson
 
 # GPIO pin assignment for Motor 3 (same side as Motor 1)
-IN1_motor3 = 16  # Updated GPIO16
-IN2_motor3 = 15  # Updated GPIO15
+IN1_motor3 = 11  # Updated GPIO11
+IN2_motor3 = 12  # Updated GPIO12
 
 # GPIO pin assignment for Motor 4
-IN3_motor4 = 11  # Updated GPIO11
-IN4_motor4 = 12  # Updated GPIO12
+IN3_motor4 = 10  # Updated GPIO10
+IN4_motor4 = 8   # Updated GPIO8
 
 # GPIO setup
 GPIO.setmode(GPIO.BCM)  # Use BCM numbering for GPIO pins
