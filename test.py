@@ -10,12 +10,12 @@ IN3_motor2 = 20  # GPIO20 -> Pin 38 on Jetson
 IN4_motor2 = 16  # GPIO16 -> Pin 36 on Jetson
 
 # GPIO pin assignment for Motor 3 (same side as Motor 1)
-IN1_motor3 = 17  # GPIO17 -> Pin 11 on Jetson
-IN2_motor3 = 27  # GPIO27 -> Pin 13 on Jetson
+IN1_motor3 = 16  # Updated GPIO16
+IN2_motor3 = 15  # Updated GPIO15
 
 # GPIO pin assignment for Motor 4
-IN3_motor4 = 22  # GPIO22 -> Pin 10 on Jetson
-IN4_motor4 = 23  # GPIO23 -> Pin 12 on Jetson
+IN3_motor4 = 11  # Updated GPIO11
+IN4_motor4 = 12  # Updated GPIO12
 
 # GPIO setup
 GPIO.setmode(GPIO.BCM)  # Use BCM numbering for GPIO pins
@@ -140,6 +140,7 @@ try:
 
 except KeyboardInterrupt:
     print("Program interrupted by the user.")
+    stop_all()
 finally:
     stop_all()  # Ensure all motors are stopped
     GPIO.cleanup()  # Clean up GPIO settings
