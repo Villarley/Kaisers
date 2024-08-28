@@ -104,17 +104,17 @@ def turn_90_degrees():
 
 # Test code to control the motors individually and perform a 90-degree turn
 try:
-    # Move Motor 1 forward
-    move_motor1_forward()
-    time.sleep(2)  # Move Motor 1 for 2 seconds
-    stop_motor1()
-    time.sleep(1)  # Pause for 1 second
+    # # Move Motor 1 forward
+    # move_motor1_forward()
+    # time.sleep(2)  # Move Motor 1 for 2 seconds
+    # stop_motor1()
+    # time.sleep(1)  # Pause for 1 second
 
-    # Move Motor 2 forward
-    move_motor2_forward()
-    time.sleep(2)  # Move Motor 2 for 2 seconds
-    stop_motor2()
-    time.sleep(1)  # Pause for 1 second
+    # # Move Motor 2 forward
+    # move_motor2_forward()
+    # time.sleep(2)  # Move Motor 2 for 2 seconds
+    # stop_motor2()
+    # time.sleep(1)  # Pause for 1 second
 
     # Move Motor 3 forward
     move_motor3_forward()
