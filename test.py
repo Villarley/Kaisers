@@ -123,15 +123,15 @@ try:
     time.sleep(1)  # Pause for 1 second
 
     # Move Motor 4 forward
-    move_motor4_forward()
+    # move_motor4_forward()
     time.sleep(2)  # Move Motor 4 for 2 seconds
-    stop_motor4()
+    # stop_motor4()
     time.sleep(1)  # Pause for 1 second
 
     # Move all motors forward
-    move_all_forward()
+    # move_all_forward()
     time.sleep(2)  # Move all motors for 2 seconds
-    stop_all()
+    # stop_all()
     time.sleep(1)  # Pause for 1 second
 
     # Turn 90 degrees
