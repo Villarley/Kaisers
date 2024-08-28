@@ -64,11 +64,11 @@ def stop_motor3():
     GPIO.output(IN1_motor3, GPIO.LOW)
     GPIO.output(IN2_motor3, GPIO.LOW)
 
-# Function to move Motor 4 forward
+# Function to move Motor 4 forward (corrected direction)
 def move_motor4_forward():
     print("Moving Motor 4 forward.")
-    GPIO.output(IN3_motor4, GPIO.HIGH)
-    GPIO.output(IN4_motor4, GPIO.LOW)
+    GPIO.output(IN3_motor4, GPIO.LOW)  # Corrected
+    GPIO.output(IN4_motor4, GPIO.HIGH)  # Corrected
 
 # Function to stop Motor 4
 def stop_motor4():
@@ -112,7 +112,7 @@ try:
     stop_motor3()
     time.sleep(1)  # Pause for 1 second
 
-    # Move Motor 4 forward
+    # Move Motor 4 forward (corrected)
     move_motor4_forward()
     time.sleep(2)  # Move Motor 4 for 2 seconds
     stop_motor4()
