@@ -1,10 +1,11 @@
 #include <WiFi.h>
 #include <ESP32Servo.h>
 
-const char* ssid = "MGSV";       // Reemplaza con el SSID de tu red Wi-Fi
-const char* password = "MGSV19541956"; // Reemplaza con la contraseña de tu red Wi-Fi
+const char* ssid = "CI2A_STEAM";       // Reemplaza con el SSID de tu red Wi-Fi
+const char* password = "Cia$_2022"; // Reemplaza con la contraseña de tu red Wi-Fi
 
-Servo myServo; 
+Servo myServo;
+int buzzerPin = 23;
 //int emergency[] = {2,3,4,5,6};
 //int normal[] = {9,10,11,12,13};
 int ledN1 = 2;
@@ -14,8 +15,8 @@ int ledN4 = 17;
 int ledN5 = 5;
 int ledE1 = 18;
 int ledE2 = 19;
-int ledE3 = 22;
-int ledE4 = 23;
+int ledE3 = 21;
+int ledE4 = 15;
 int ledE5 = 0;
 int serv = 15;
 WiFiServer server(80); // El servidor escucha en el puerto 80
@@ -24,6 +25,7 @@ void setup() {
   Serial.begin(9600);
 
   myServo.attach(serv);
+  pinMode(buzzerPin, OUTPUT);
   pinMode(ledN1, OUTPUT);
   pinMode(ledN2, OUTPUT);
   pinMode(ledN3, OUTPUT);
@@ -39,7 +41,7 @@ void setup() {
   digitalWrite(ledN3,HIGH);
   digitalWrite(ledN4,HIGH);
   digitalWrite(ledN5,HIGH);
-  digitalWrite(ledE1,HIGH);
+  digitalWrite(ledE1,LOW);
     digitalWrite(ledE2,LOW);
     digitalWrite(ledE3,LOW);
     digitalWrite(ledE4,LOW);
@@ -115,6 +117,17 @@ void sismic_protocol(){
     digitalWrite(ledE3,HIGH);
     digitalWrite(ledE4,HIGH);
     digitalWrite(ledE5,HIGH);
-    Serial.print("Hola Mundo");
+    tone(buzzerPin, 800);
+    delay(2500);
+    noTone(buzzerPin);
+    delay(1000); 
+    tone(buzzerPin, 800);
+    delay(2500);
+    noTone(buzzerPin);
+    delay(1000); 
+    tone(buzzerPin, 800);
+    delay(2500);
+    noTone(buzzerPin);
+    delay(1000); 
   //}
 }

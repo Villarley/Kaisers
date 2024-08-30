@@ -1,20 +1,19 @@
-from jetson_sender import JetsonSender
+from motor_controller import MotorController
 
-class EvacuationProtocol:
-    def __init__(self):
-        self.jetson_sender = JetsonSender()
-
-    def execute(self):
-        print("Ejecutando protocolo de evacuación...")
-        evacuation_instruction = "1"
-        response = self.jetson_sender.send_instruction(evacuation_instruction)
-
-        if response:
-            print(f"Respuesta del ESP32: {response}")
-        else:
-            print("No se recibió respuesta del ESP32.")
+def evacuationJourney(motor_controller):
+    
+    print("Iniciando el viaje de evacuación")
+    motor_controller.move_forward(duration=2)
+    motor_controller.turn_left(duration=1)
+    motor_controller.move_forward(duration=2)
+    motor_controller.turn_right(duration=1)
+    motor_controller.move_backward(duration=2)
+    print("Viaje de evacuación completo")
 
 # Uso de ejemplo
 if __name__ == "__main__":
-    protocolo = EvacuationProtocol()
-    protocolo.execute()
+    motor_controller = MotorController(left_pin=12, right_pin=16)
+    try:
+        evacuationJourney(motor_controller)
+    finally:
+        motor_controller.cleanup()
