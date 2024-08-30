@@ -1,4 +1,4 @@
-from motor_controller import MotorController
+from motor_control import MotorController
 
 def evacuationJourney(motor_controller):
     
