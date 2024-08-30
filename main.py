@@ -7,7 +7,7 @@ def main():
     motor_controller = MotorController (left_pin=12, right_pin=16)
 
     # Inicializa el protocolo de evacuación
-    protocolo = evacuationJourney()
+    protocolo = evacuationJourney(motor_controller)
 
     # Inicializa y ejecuta el listener
     listener = TCPListener()
