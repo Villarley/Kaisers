@@ -1,5 +1,6 @@
 from jetson_sender import JetsonSender
 from motor_control import MotorController
+import subprocess  # Importa el módulo subprocess
 
 class EvacuationProtocol:
     def __init__(self):
@@ -28,9 +29,18 @@ class EvacuationProtocol:
         finally:
             self.motor_controller.cleanup()
 
+    def open_cheese(self):
+        print("Abriendo Cheese para captura de video...")
+        try:
+            subprocess.run(["cheese"], check=True)
+            print("Cheese se ha iniciado correctamente.")
+        except subprocess.CalledProcessError as e:
+            print(f"Error al intentar abrir Cheese: {e}")
+
     def execute(self):
         self.execute_protocol()
         self.perform_evacuation_journey()
+        self.open_cheese()
 
 # Uso de ejemplo
 if __name__ == "__main__":
