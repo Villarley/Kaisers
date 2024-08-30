@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <ESP32Servo.h>
 
-const char* ssid = "CI2A_STEAM";       // Reemplaza con el SSID de tu red Wi-Fi
-const char* password = "Cia$_2022"; // Reemplaza con la contraseña de tu red Wi-Fi
+const char* ssid = "Jetson";       // Reemplaza con el SSID de tu red Wi-Fi
+const char* password = "Astroboy2024"; // Reemplaza con la contraseña de tu red Wi-Fi
 
 Servo myServo;
 int buzzerPin = 23;
